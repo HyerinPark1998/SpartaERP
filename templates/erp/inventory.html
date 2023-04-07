@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    재고관리
+{% endblock %}
+{% block content %}
+    <div style="float: right; margin-top: 15px; margin-right: 30px;">
+        <a href="/product-list" class="btn btn-secondary">상품 목록</a>
+        <a href="/product-create" class="btn btn-secondary">상품 등록</a>
+        <a href="/inbound-create" class="btn btn-secondary">입고 등록</a>
+        <a href="/outbound-create" class="btn btn-secondary">출고 등록</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Size</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        {% for i in inventory %}
+            <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td>{{ i.code_id }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.size }}</td>
+                <td>{{ i.total_quantity }}</td>
+                <td>{{ i.price }}</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

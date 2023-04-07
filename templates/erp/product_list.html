@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    상품 목록
+{% endblock %}
+{% block content %}
+    <div style="float: right; margin-top: 10px; margin-right: 15px;">
+        <a href="/product-create" class="btn btn-secondary">상품 등록</a>
+        <a href="/inventory" class="btn btn-secondary">돌아가기</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Size</th>
+        </tr>
+        </thead>
+        {% for prod in product_list %}
+            <tbody>
+            <tr>
+                <th scope="row">{{ prod.id }}</th>
+                <td>{{ prod.code }}</td>
+                <td>{{ prod.name }}</td>
+                <td>{{ prod.description }}</td>
+                <td>{{ prod.price }}</td>
+                <td>{{ prod.size }}</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

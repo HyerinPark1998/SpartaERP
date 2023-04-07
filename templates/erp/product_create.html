@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    상품 등록
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="wrap">
+            <h2 class="title-center"> 상품 등록 </h2>
+            <form class="form-area" method="post" action="/product-create/">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div style="text-align: center">
+                    <button type="submit" class="btn btn-primary">상품 등록</button>
+                    <a href="/inventory" class="btn btn-secondary">돌아가기</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
